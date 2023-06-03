@@ -93,7 +93,7 @@ unordered_set<string> findWikiLinks(const string& inp) {
          */
         if(valid_wikilink(link)){
             ret.insert(link);
-            cout << "link: " << link << endl;
+            // cout << "link: " << link << endl;
         }
 
         url_start = url_end;

@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named main
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 error.o: error.cpp.o
 .PHONY : error.o
 
 # target to build an object file
 error.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/error.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/error.cpp.o
 .PHONY : error.cpp.o
 
 error.i: error.cpp.i
@@ -142,7 +142,7 @@ error.i: error.cpp.i
 
 # target to preprocess a source file
 error.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/error.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/error.cpp.i
 .PHONY : error.cpp.i
 
 error.s: error.cpp.s
@@ -150,39 +150,39 @@ error.s: error.cpp.s
 
 # target to generate assembly for a file
 error.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/error.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/error.cpp.s
 .PHONY : error.cpp.s
 
-test-wikiscraper.o: test-wikiscraper.cpp.o
-.PHONY : test-wikiscraper.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-test-wikiscraper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test-wikiscraper.cpp.o
-.PHONY : test-wikiscraper.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-test-wikiscraper.i: test-wikiscraper.cpp.i
-.PHONY : test-wikiscraper.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-test-wikiscraper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test-wikiscraper.cpp.i
-.PHONY : test-wikiscraper.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-test-wikiscraper.s: test-wikiscraper.cpp.s
-.PHONY : test-wikiscraper.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-test-wikiscraper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test-wikiscraper.cpp.s
-.PHONY : test-wikiscraper.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 wikiscraper.o: wikiscraper.cpp.o
 .PHONY : wikiscraper.o
 
 # target to build an object file
 wikiscraper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/wikiscraper.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/wikiscraper.cpp.o
 .PHONY : wikiscraper.cpp.o
 
 wikiscraper.i: wikiscraper.cpp.i
@@ -190,7 +190,7 @@ wikiscraper.i: wikiscraper.cpp.i
 
 # target to preprocess a source file
 wikiscraper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/wikiscraper.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/wikiscraper.cpp.i
 .PHONY : wikiscraper.cpp.i
 
 wikiscraper.s: wikiscraper.cpp.s
@@ -198,7 +198,7 @@ wikiscraper.s: wikiscraper.cpp.s
 
 # target to generate assembly for a file
 wikiscraper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/wikiscraper.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/wikiscraper.cpp.s
 .PHONY : wikiscraper.cpp.s
 
 # Help Target
@@ -209,13 +209,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test"
+	@echo "... main"
 	@echo "... error.o"
 	@echo "... error.i"
 	@echo "... error.s"
-	@echo "... test-wikiscraper.o"
-	@echo "... test-wikiscraper.i"
-	@echo "... test-wikiscraper.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... wikiscraper.o"
 	@echo "... wikiscraper.i"
 	@echo "... wikiscraper.s"
