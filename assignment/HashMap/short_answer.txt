@@ -1,0 +1,17 @@
+Assignment 3: STL HashMap (short answer questions)
+Names: Pai
+
+1. at() vs. []
+
+
+2. HashMap::find vs. std::find
+
+
+3. RAII?
+
+
+4. Increments
+
+
+
+

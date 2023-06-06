@@ -143,7 +143,7 @@ public:
     *
     * Complexity: O(1) (inlined because function is short)
     */
-    inline size_t size();
+    inline size_t size() const;
 
     /*
     * Returns whether the HashMap is empty.
@@ -156,7 +156,7 @@ public:
     *
     * Complexity: O(1) (inlined because function is short)
     */
-    inline bool empty();
+    inline bool empty() const;
 
     /*
     * Returns the load_factor, defined as size/bucket_count.
@@ -211,7 +211,7 @@ public:
     * Since contains feels more natural to students who've used the Stanford libraries
     * and will be available in the future, we will implement map.contains(key).
     */
-    bool contains(const K& key);
+    bool contains(const K& key) const;
 
     /*
     * Returns a l-value reference to the mapped value given a key.
@@ -233,6 +233,11 @@ public:
     * mapped value. This function is also not const-correct, which you will fix in milestone 2.
     */
     M& at(const K& key);
+
+    /*
+    * This function is the same as at(), but it's a const-interface version
+    */
+    const M& at(const K& key) const;
 
     /*
     * Removes all K/M pairs the HashMap.
@@ -266,6 +271,15 @@ public:
      * Complexity: O(1) amortized average case, O(N) worst case, N = number of elements
      */
     iterator find(const K& key);
+
+    /*
+     * Returns a const_iterator to that element.
+     * This overload is used when the HashMap is const.
+     *
+     * Usage:
+     *      auto iter = cmap.find(4);
+     */
+    const_iterator find(const K& key) const;
 
     /*
     * Inserts the K/M pair into the HashMap, if the key does not already exist.
@@ -376,6 +390,14 @@ public:
      */
     iterator end();
 
+    /*
+     * Returns a const_iterator to the last element.
+     * This overload is used when the HashMap is const.
+     *
+     * Usage:
+     *      auto iter = cmap.end();
+     */
+    const_iterator end() const;
 
     /*
     * Function that will print to std::cout the contents of the hash table as
@@ -454,6 +476,67 @@ public:
 
     /* Milestone 2 headers (you need to declare these) */
     // TODO: declare headers for copy constructor/assignment, move constructor/assignment
+
+    /*
+     * Copy constructor
+     * Creates a HashMap with the elements in the rhs HashMap
+     *
+     * Requirements: the rhs HashMap should have the same <K, M, H>.
+     *
+     * Usage:
+     * 		HashMap<char, int> rhs{{'a', 3}, {'b', 4}, {'c', 5}};
+     * 		HashMap<char, int> map(rhs);
+     *
+     * Complexity: O(N), where N = rhs.size();
+     *
+     */
+    HashMap(const HashMap& rhs);
+
+    /*
+     * Copy assignment operator
+     * copy the elements on the rhs of the assignment into the lhs HashMap
+     *
+     * Requirements: the rhs HashMap should have the same <K, M, H>.
+     *
+     * Usage:
+     * 		HashMap<char, int> rhs{{'a', 3}, {'b', 4}, {'c', 6}};
+     * 		HashMap<char, int> map;
+     * 		map = rhs;
+     *
+     * Complexity: O(N), where N = rhs.size();
+     *
+     */
+    HashMap& operator=(const HashMap& rhs);
+
+    /*
+      * Move constructor
+      * Creates HashMap by move the elements in the rhs r-value HashMap into the new created one.
+      *
+      * Requirements: the rhs HashMap should have the same <K, M, H>
+      *
+      * Usage:
+      *		HashMap<char, int> rhs{{'a', 3}, {'b', 4}, {'c', 5}};
+      *		HashMap<char, int> map(std::move(rhs)); // now rhs should be empty
+      *
+      * Complexity: O(N), where N = rhs.size()
+      *
+      */
+    HashMap(HashMap&& rhs);
+
+    /*
+      * Move assignment operator
+      * Move the elements in the rhs r-value HashMap into the lhs HashMap
+      * Requirements: the rhs HashMap should have the same <K, M, H>.
+      *
+      * Usage:
+      * 		HashMap<char, int> rhs{{'a', 3}, {'b', 4}, {'c', 6}};
+      * 		HashMap<char, int> map;
+      * 		map = std::move(rhs); // now rhs should be empty
+      *
+      * Complexity: O(N), where N = rhs.size();
+      */
+    HashMap& operator=(HashMap&& rhs);
+
 
 private:
     /*
